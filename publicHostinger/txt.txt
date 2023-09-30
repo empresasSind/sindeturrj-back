@@ -1,0 +1,4 @@
+mv publicHostinger/index.php ../public_html/index.php
+mv publicHostinger/favicon.ico ../public_html/favicon.ico
+mv publicHostinger/.htaccess ../public_html/.htaccess
+mv publicHostinger/robots.txt ../public_html/robots.txt
