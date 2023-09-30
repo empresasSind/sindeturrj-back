@@ -7,7 +7,14 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## Requisitos:
+
+PHP 8.2.8
+
+## Como iniciar a aplicação
+
+Depois de atender os requisitos, vá até a raiz do projeto e rode o comando "php artisan serve".
+Para rodar em background use o comando "php artisan serve &"; depois quando quiser matar o processo, encontre o PID correspondente pelo comando "htop" e use: "kill PID" para encerra-lo; caso ele não finalize use: "kill -kill PID" para forçar.
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
