@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('cnpj',false, true);
+            $table->string('cnpj')->unique();
             $table->string('name');
             $table->timestamps();
         });
