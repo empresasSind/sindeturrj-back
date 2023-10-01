@@ -14,21 +14,8 @@ class CompanyController extends Controller
      */
     public function index()
     {
-
-        $object = Company::all();
-
-        // $object = [
-        //     (object) [
-        //         'id' => 546,
-        //         'username' => 'John',
-        //     ],
-        //     (object) [
-        //         'id' => 894,
-        //         'username' => 'Mary',
-        //     ]
-        // ];
-
-        return response()->json($object);
+        $all = Company::all();
+        return response()->json($all);
     }
 
     /**
@@ -42,11 +29,6 @@ class CompanyController extends Controller
             'name' => 'required|max:255',
             'cnpj' => 'required',
         ]);
-
-        // $arr = [
-        //     'name' => $request->name,
-        //     'cnpj' => $request->cnpj
-        // ]
         Company::create($request->all());
         return response()->json($request->all());
     }
@@ -72,6 +54,6 @@ class CompanyController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Company::destroy($id);
     }
 }
