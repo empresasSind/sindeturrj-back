@@ -54,6 +54,19 @@ class CompanyController extends Controller
      */
     public function destroy(string $id)
     {
-        Company::destroy($id);
+        // Company::destroy($id);
+
+        if(Company::where('id',$id)->exists()) {
+            $company = Company::find($id);
+            $company->delete();
+
+            return response()->json([
+                "message" => " records deleted."
+            ], 202);
+        } else {
+            return response()->json([
+                "message" => "not found."
+            ], 404);
+        }
     }
 }
