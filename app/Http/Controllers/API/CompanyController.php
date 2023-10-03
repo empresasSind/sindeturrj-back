@@ -12,9 +12,22 @@ class CompanyController extends Controller
      * Display a listing of the resource.
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $all = Company::all();
+        $cnpj = $request->query('cnpj');
+
+        if ($cnpj) {
+            $companies = Company::where('cnpj', 'like', '%' . $cnpj . '%')->get();
+        } else {
+            $companies = Company::all();
+        }
+        return response()->json($companies);
+    }
+
+    public function search(Request $request) {
+       
+
+        $all = Company::where('cnpj', $request->cnpj);
         return response()->json($all);
     }
 
@@ -38,7 +51,14 @@ class CompanyController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $company = Company::find($id);
+        if (!empty($company)) {
+            return response()->json($company);
+        } else {
+            return response()-json([
+                "message" => "not found"
+            ], 404);
+        }
     }
 
     /**
